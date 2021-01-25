@@ -27,6 +27,8 @@
     "cfonts": "^2.9.0",
     "escape-string-regexp": "^4.0.0",
     "fake-useragent": "^1.0.1",
+    "image-to-base64": "^2.1.1",
+    "imgbb-uploader": "^1.1.0",
     "fluent-ffmpeg": "^2.1.2",
     "lolis.life": "^4.0.0",
     "moment-timezone": "^0.5.32",
