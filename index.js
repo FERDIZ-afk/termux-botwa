@@ -99,9 +99,9 @@ const { limit } = require('./database/menu/limit*/
 // Load Vcard Contact
 const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'VERSION:3.0\n' 
-            + 'FN:Kukuh\n' // full name
+            + 'FN:FERDIZ-afk\n' // full name
             + 'ORG:Owner Bot;\n' // the organization of the contact
-            + 'TEL;type=CELL;type=VOICE;waid=14092765147:+1 (409) 276-5147\n' // WhatsApp ID + phone number
+            + 'TEL;type=CELL;type=VOICE;waid=6287877173955:+6287877173955\n' // WhatsApp ID + phone number
             + 'END:VCARD'
 prefix = '.'
 blocked = []
@@ -376,8 +376,8 @@ async function starts() {
                         const q = args.join(' ')
 
 			mess = {
-				wait: '⌛ Sedang di Prosess ⌛',
-				success: '✔️ Berhasil ✔️',
+				wait: '⌛ Sedang di Prosess',
+				success: '✔️ Berhasil',
                                 levelon: '❬ ✔ ❭ *enable leveling*',
 				leveloff: ' ❬ X ❭  *disable leveling*',
 				levelnoton: '❬ X ❭ *leveling not aktif*',
@@ -399,7 +399,7 @@ async function starts() {
         		const bisakah = ['Bisa','Tidak Bisa']
 		        const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
 			const botNumber = client.user.jid
-			const ownerNumber = ["14092765147@s.whatsapp.net"] // replace this with your number
+			const ownerNumber = ["087877173955@s.whatsapp.net"] // replace this with your number
 			const nomorOwner = [ownerNumber]
 			const isGroup = from.endsWith('@g.us')
 			const totalchat = await client.chats.all()
@@ -692,7 +692,7 @@ async function starts() {
                                         await limitAdd(sender)
                                         break
                   case 'promote':
-					client.updatePresence(from, Presence.composing) 
+			client.updatePresence(from, Presence.composing) 
                                         if (!isRegister) return reply(mess.only.daftarB)
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
@@ -1016,7 +1016,6 @@ async function starts() {
                                         await limitAdd(sender)
 					break  
 					case 'bpink':
-              
                   if (args.length < 1) return reply(`Masukan Teks\nContoh : ${prefix}Caliph Bot`)
                 data = await getBuffer(`https://docs-jojo.herokuapp.com/api/blackpink?text=${body.slice(7)}`)
                 if (!iRegister) return reply(mess.only.daftarB)
@@ -1128,58 +1127,32 @@ async function starts() {
 					}
 					mentions('╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - 〙', members_id, true)
 					break
-                case 'tagall2':
-				client.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
-					members_id = []
-					teks = (args.length > 1) ? body.slice(8).trim() : ''
-					teks += `  Total : ${groupMembers.length}\n`
-					for (let mem of groupMembers) {
-						teks += `╠➥ ${mem.jid.split('@')[0]}\n`
-						members_id.push(mem.jid)
-					}
-					client.sendMessage(from, '╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - 〙', text, {quoted: mek})
-					break
-                case 'tagall3':
-				client.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
-					members_id = []
-					teks = (args.length > 1) ? body.slice(8).trim() : ''
-					teks += `  Total : ${groupMembers.length}\n`
-					for (let mem of groupMembers) {
-						teks += `╠➥ https://wa.me/${mem.jid.split('@')[0]}\n`
-						members_id.push(mem.jid)
-					}
-					client.sendMessage(from, '╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - - 〙', text, {detectLinks: false, quoted: mek})
-					break
-                        case 'tagall4':
-				client.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
-					members_id = []
-					teks = (args.length > 1) ? body.slice(8).trim() : ''
-					teks += `  Total : ${groupMembers.length}\n`
-					for (let mem of groupMembers) {
-						teks += `╠➥ ${mem.jid.split('@')[0]}@c.us\n`
-						members_id.push(mem.jid)
-					}
-					client.sendMessage(from, '╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - - 〙', text, {quoted: mek})
-					break
-                case 'tagall5':
-				client.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
-					members_id = []
-					teks = (args.length > 1) ? body.slice(8).trim() : ''
-					teks += `  Total : ${groupMembers.length}\n`
-					for (let mem of groupMembers) {
-						teks += `╠➥ ${mem.jid.split('@')[0]}@s.whatsapp.net\n`
-						members_id.push(mem.jid)
-					}
-					reply('╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - - 〙')
-					break
+case 'tagall2':
+	client.updatePresence(from, Presence.composing) 
+	if (!isGroup) return reply(mess.only.group)
+	if (!isGroupAdmins) return reply(mess.only.admin)
+	members_id = []
+	teks = (args.length > 1) ? body.slice(8).trim() : ''
+		teks += `  Total : ${groupMembers.length}\n`
+		for (let mem of groupMembers) {
+		teks += `╠➥ ${mem.jid.split('@')[0]}\n`
+		members_id.push(mem.jid)
+		}
+		client.sendMessage(from, '╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - 〙', text, {quoted: mek})
+	break
+case 'tagall3':
+	client.updatePresence(from, Presence.composing) 
+	if (!isGroup) return reply(mess.only.group)
+	if (!isGroupAdmins) return reply(mess.only.admin)
+	members_id = []
+	teks = (args.length > 1) ? body.slice(8).trim() : ''
+		teks += `  Total : ${groupMembers.length}\n`
+		for (let mem of groupMembers) {
+		teks += `╠➥ https://wa.me/${mem.jid.split('@')[0]}\n`
+		members_id.push(mem.jid)
+		}
+		client.sendMessage(from, '╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - - 〙', text, {detectLinks: false, quoted: mek})
+	break
 				case 'send':
 					var pc = body.slice(6)
 					var nomor = pc.split("|")[0];
@@ -1275,12 +1248,12 @@ async function starts() {
                     if (!isGroup) return reply(mess.only.group)
                     if (!isGroupAdmins) return reply(mess.only.admin)
                      setTimeout( () => {
-					client.groupLeave (from) 
-					}, 2000)
+			client.groupLeave (from) 
+			}, 2000)
                      setTimeout( () => {
-					client.updatePresence(from, Presence.composing) 
-					client.sendMessage(from, 'Sayonara👋', text) // ur cods
-					}, 0)
+			client.updatePresence(from, Presence.composing) 
+			client.sendMessage(from, 'Sayonara👋', text) // ur cods
+			}, 0)
                      break
 
 				case 'chord':
@@ -1440,9 +1413,7 @@ async function starts() {
                     break
                case 'apakah':
                client.updatePresence(from, Presence.composing) 
-
                random = apakah[Math.floor(Math.random() * (apakah.length))]
-  	
 			   hasil = `Pertanyaan : *${body.slice(1)}*\n\nJawaban : *${random}*`
 			   reply(hasil)
 			   break
@@ -1469,7 +1440,7 @@ async function starts() {
                hasil = `Pertanyaan : *${body.slice(1)}*\n\nJawaban : *${random2} ${random}*`
               reply(hasil)
                 break
-			case 'closegc':
+			case 'gcclose':
 					client.updatePresence(from, Presence.composing) 
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
@@ -1482,7 +1453,7 @@ async function starts() {
 					client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 					reply(close)
 					break
-                case 'opengc':
+                case 'gcopen':
                 case 'bukagc':
 					client.updatePresence(from, Presence.composing) 
 					if (!isGroup) return reply(mess.only.group)
